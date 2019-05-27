@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+inhibit_all_warnings!
+use_frameworks!
+
+target 'RxExamples' do
+  use_frameworks!
+
+  pod 'Moya' # 网络请求 https://github.com/Moya/Moya
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxDataSources'  # https://github.com/RxSwiftCommunity/RxDataSources
+
+end
