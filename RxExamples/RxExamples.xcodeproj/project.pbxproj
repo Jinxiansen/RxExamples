@@ -31,6 +31,14 @@
 		3C9DC29D229E601B00B3DCA9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC29C229E601B00B3DCA9 /* Constant.swift */; };
 		3C9DC29F229E603E00B3DCA9 /* AssetsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC29E229E603E00B3DCA9 /* AssetsApi.swift */; };
 		3C9DC2A1229E612D00B3DCA9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2A0229E612D00B3DCA9 /* String+Ext.swift */; };
+		3C9DC2A3229E62FF00B3DCA9 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2A2229E62FF00B3DCA9 /* WordController.swift */; };
+		3C9DC2A5229E632C00B3DCA9 /* WordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2A4229E632C00B3DCA9 /* WordViewModel.swift */; };
+		3C9DC2A8229E7CA500B3DCA9 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2A7229E7CA500B3DCA9 /* WordModel.swift */; };
+		3C9DC2AA229E7F9200B3DCA9 /* RefreshStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2A9229E7F9200B3DCA9 /* RefreshStatus.swift */; };
+		3C9DC2AC229E82C100B3DCA9 /* WordApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2AB229E82C100B3DCA9 /* WordApi.swift */; };
+		3C9DC2AE229E83F700B3DCA9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2AD229E83F700B3DCA9 /* BaseApi.swift */; };
+		3C9DC2B1229E8B7900B3DCA9 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2AF229E8B7900B3DCA9 /* WordCell.swift */; };
+		3C9DC2B2229E8B7900B3DCA9 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C9DC2B0229E8B7900B3DCA9 /* WordCell.xib */; };
 		A7BFA96537B2407676DFF2F3 /* Pods_RxExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99099862A5B692348D851E0F /* Pods_RxExamples.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +71,14 @@
 		3C9DC29C229E601B00B3DCA9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3C9DC29E229E603E00B3DCA9 /* AssetsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsApi.swift; sourceTree = "<group>"; };
 		3C9DC2A0229E612D00B3DCA9 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		3C9DC2A2229E62FF00B3DCA9 /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
+		3C9DC2A4229E632C00B3DCA9 /* WordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewModel.swift; sourceTree = "<group>"; };
+		3C9DC2A7229E7CA500B3DCA9 /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WordModel.swift; path = ../ViewModels/WordModel.swift; sourceTree = "<group>"; };
+		3C9DC2A9229E7F9200B3DCA9 /* RefreshStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStatus.swift; sourceTree = "<group>"; };
+		3C9DC2AB229E82C100B3DCA9 /* WordApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordApi.swift; sourceTree = "<group>"; };
+		3C9DC2AD229E83F700B3DCA9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		3C9DC2AF229E8B7900B3DCA9 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
+		3C9DC2B0229E8B7900B3DCA9 /* WordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
 		99099862A5B692348D851E0F /* Pods_RxExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3E8040E72BB87731D70522 /* Pods-RxExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamples.release.xcconfig"; path = "Target Support Files/Pods-RxExamples/Pods-RxExamples.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +120,7 @@
 				3C773819229CCA0E00CFC54D /* Controllers */,
 				3C77381A229CCA1600CFC54D /* Models */,
 				3C77382F229E21AF00CFC54D /* ViewModels */,
+				3C9DC2B3229E8B7B00B3DCA9 /* Views */,
 				3C773836229E231300CFC54D /* Extensions */,
 				3C9DC28D229E23F900B3DCA9 /* Request */,
 				3C9DC29B229E601B00B3DCA9 /* Define */,
@@ -123,6 +140,7 @@
 				3C7737FA229BEDC100CFC54D /* HomeController.swift */,
 				3C9DC28E229E244200B3DCA9 /* TapController.swift */,
 				3C773815229CC98400CFC54D /* RegisterController.swift */,
+				3C9DC2A2229E62FF00B3DCA9 /* WordController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -132,6 +150,7 @@
 			children = (
 				3C773810229BF65900CFC54D /* SectionItem.swift */,
 				3C773825229D139400CFC54D /* VResult.swift */,
+				3C9DC2A7229E7CA500B3DCA9 /* WordModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9DC297229E55E500B3DCA9 /* RegisterViewModel.swift */,
+				3C9DC2A4229E632C00B3DCA9 /* WordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -164,8 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				3C77381D229CD1DC00CFC54D /* UserApi.swift */,
+				3C9DC2AB229E82C100B3DCA9 /* WordApi.swift */,
 				3C9DC29E229E603E00B3DCA9 /* AssetsApi.swift */,
 				3C77382B229D343800CFC54D /* ErrorType.swift */,
+				3C9DC2AD229E83F700B3DCA9 /* BaseApi.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -174,8 +196,18 @@
 			isa = PBXGroup;
 			children = (
 				3C9DC29C229E601B00B3DCA9 /* Constant.swift */,
+				3C9DC2A9229E7F9200B3DCA9 /* RefreshStatus.swift */,
 			);
 			path = Define;
+			sourceTree = "<group>";
+		};
+		3C9DC2B3229E8B7B00B3DCA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3C9DC2AF229E8B7900B3DCA9 /* WordCell.swift */,
+				3C9DC2B0229E8B7900B3DCA9 /* WordCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		50748A27034F7DA3435110E1 /* Frameworks */ = {
@@ -257,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C773803229BEDC300CFC54D /* LaunchScreen.storyboard in Resources */,
+				3C9DC2B2229E8B7900B3DCA9 /* WordCell.xib in Resources */,
 				3C773800229BEDC300CFC54D /* Assets.xcassets in Resources */,
 				3C7737FE229BEDC100CFC54D /* Main.storyboard in Resources */,
 			);
@@ -276,6 +309,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
@@ -285,6 +319,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -293,6 +328,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
@@ -302,6 +338,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,16 +377,22 @@
 			files = (
 				3C9DC28F229E244200B3DCA9 /* TapController.swift in Sources */,
 				3C773811229BF65900CFC54D /* SectionItem.swift in Sources */,
+				3C9DC2AC229E82C100B3DCA9 /* WordApi.swift in Sources */,
 				3C77381E229CD1DC00CFC54D /* UserApi.swift in Sources */,
 				3C7737FB229BEDC100CFC54D /* HomeController.swift in Sources */,
 				3C773816229CC98400CFC54D /* RegisterController.swift in Sources */,
 				3C77380F229BF48B00CFC54D /* NSObject+Ext.swift in Sources */,
 				3C773831229E227900CFC54D /* UITableView+Ext.swift in Sources */,
+				3C9DC2A8229E7CA500B3DCA9 /* WordModel.swift in Sources */,
+				3C9DC2B1229E8B7900B3DCA9 /* WordCell.swift in Sources */,
+				3C9DC2A3229E62FF00B3DCA9 /* WordController.swift in Sources */,
 				3C9DC298229E55E500B3DCA9 /* RegisterViewModel.swift in Sources */,
+				3C9DC2AA229E7F9200B3DCA9 /* RefreshStatus.swift in Sources */,
 				3C9DC29D229E601B00B3DCA9 /* Constant.swift in Sources */,
 				3C773818229CC99D00CFC54D /* BaseController.swift in Sources */,
 				3C9DC291229E28D400B3DCA9 /* UIViewController+Ext.swift in Sources */,
 				3C9DC29F229E603E00B3DCA9 /* AssetsApi.swift in Sources */,
+				3C9DC2A5229E632C00B3DCA9 /* WordViewModel.swift in Sources */,
 				3C9DC29A229E590100B3DCA9 /* UINavigationBar+Ext.swift in Sources */,
 				3C773835229E22AE00CFC54D /* Response+Ext.swift in Sources */,
 				3C773826229D139400CFC54D /* VResult.swift in Sources */,
@@ -359,6 +402,7 @@
 				3C7737F9229BEDC100CFC54D /* AppDelegate.swift in Sources */,
 				3C77382C229D343800CFC54D /* ErrorType.swift in Sources */,
 				3C773833229E229800CFC54D /* UIStoryboard+Ext.swift in Sources */,
+				3C9DC2AE229E83F700B3DCA9 /* BaseApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

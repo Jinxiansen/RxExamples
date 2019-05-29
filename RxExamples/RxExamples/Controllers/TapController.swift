@@ -17,7 +17,7 @@ class TapController: BaseController {
         
         tapButton.rx.tap.do(onNext: { _ in
             SVProgressHUD.show()
-        }).delay(1.5, scheduler: MainScheduler.instance).subscribeNext({ _ in
+        }).delay(1.5, scheduler: MainScheduler.instance).subscribe(onNext: { _ in
             SVProgressHUD.showSuccess(withStatus: "请求成功")
         }).disposed(by: rx.disposeBag)
         

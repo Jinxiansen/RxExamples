@@ -26,7 +26,7 @@ extension MoyaProvider {
         })
     }
 
-    func requestData(_ target: Target) -> Observable<VResult>{
+    func requestData(_ target: Target) -> Observable<VResult> {
 
         return Observable.create { [weak self] observer in
             let cancellableToken = self?.requestData(target) { result in

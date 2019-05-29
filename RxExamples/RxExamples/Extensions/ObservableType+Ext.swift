@@ -23,11 +23,3 @@ extension ObservableType where E == VResult {
         })
     }
 }
-
-
-extension ObservableType {
-    
-    public func subscribeNext(_ onNext: @escaping ((E) -> Void), onError: ((Swift.Error) -> Void)? = nil) -> Disposable {
-        return subscribe(onNext: onNext, onError: onError)
-    }
-}

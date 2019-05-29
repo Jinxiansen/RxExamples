@@ -15,15 +15,11 @@ enum UserApi {
 }
 
 let UserProvider = MoyaProvider<UserApi>(endpointClosure:MoyaProvider.JSONEndpointMapping,
-                                         plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: jsonResponseDataFormatter),networkActivityPlugin])
+                                         plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: BaseApi.jsonResponseDataFormatter),BaseApi.networkActivityPlugin])
 
 extension UserApi: TargetType {
     var baseURL: URL {
-        #if DEBUG
-            return try! "http://api.jinxiansen.com/".asURL()
-        #else
-            return try! "http://api.jinxiansen.com/".asURL() //
-        #endif
+        return BaseApi.BaseURL
     }
     
     var path: String {
@@ -51,46 +47,16 @@ extension UserApi: TargetType {
     var task: Task {
         switch self {
         case let .register(account, password):
-            return .requestParameters(parameters: ["account":account,"password":password], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["account":account,"password":password],
+                                      encoding: URLEncoding.default)
         case .userInfo:
             return .requestPlain
         }
     }
     
     var headers: [String : String]? {
-        return ["Content-type":"application/x-www-form-urlencoded; charset=utf-8"]
+        return BaseApi.headers
     }
     
 }
-
-let networkActivityPlugin = NetworkActivityPlugin { (change,_)  -> () in
-    switch(change){
-    case .ended:
-        Async.main {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
-    case .began:
-        Async.main {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        }
-    }
-}
-
-struct Async {
-    
-    static func main(_ block: @escaping () -> Void) {
-        DispatchQueue.main.async {
-            block()
-        }
-    }
-}
-
-func jsonResponseDataFormatter(_ data: Data) -> Data {
-    do {
-        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
-        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
-        return prettyData
-    } catch {
-        return data //fallback to original data if it cant be serialized
-    }
-}
+ 

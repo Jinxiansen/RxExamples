@@ -22,22 +22,24 @@ class HomeController: BaseController {
     func configureTableView() {
         
         tableView.registerCell(class: UITableViewCell.self)
+        tableView.tableFooterView = UIView()
         
         let sec1 = SectionOfTableItem(header: "RxSwift", items: [
             TableItem(title: "点击事件", type: RxType.tap),
-            TableItem(title: "登录注册", type: RxType.register)
+            TableItem(title: "登录注册", type: RxType.register),
+            TableItem(title: "词语查询", type: RxType.word)
             ])
         
         Observable.just([sec1]).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
 
         Observable
             .zip(tableView.rx.modelSelected(TableItem.self),tableView.rx.itemSelected)
-            .subscribe(onNext: { (item,indexPath) in
+            .subscribe(onNext: { [weak self] (item,indexPath) in
                 
-                self.tableView.deselectRow(at: indexPath, animated: false)
+                self?.tableView.deselectRow(at: indexPath, animated: false)
                 print("subscribe Item:\(item) index:\(indexPath)\n")
                 
-                self.didSelected(item)
+                self?.didSelected(item)
                 
             }).disposed(by: rx.disposeBag)
     }
@@ -46,7 +48,7 @@ class HomeController: BaseController {
         configureCell: { dataSource, tableView, indexPath, item in
             
             let cell = tableView.dequeueReusable(class: UITableViewCell.self)
-            cell.textLabel?.text = "Item \(item.title)"
+            cell.textLabel?.text = "\(indexPath.row + 1). \(item.title)"
             return cell
             
     }, titleForHeaderInSection: { (dataSource, section) -> String? in
@@ -63,6 +65,9 @@ class HomeController: BaseController {
         case .register:
             t = RegisterController.self
             break
+        case .word:
+            push(controller: WordController())
+            return // 
         }
         
         push(controller: UIStoryboard.loadController(controller: t))

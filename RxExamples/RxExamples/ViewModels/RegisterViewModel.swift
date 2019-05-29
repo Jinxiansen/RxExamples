@@ -19,12 +19,9 @@ struct ValidatorError: Error {
         message = m
     }
 }
+ 
 
-struct UserValidate {
-    
-}
-
-class RegisterViewModel {
+class RegisterViewModel: NSObject {
     
     let accountValidated: Driver<Bool>
     let passwordValidated: Driver<Bool>
@@ -32,7 +29,7 @@ class RegisterViewModel {
     let registerEnable: Driver<Bool>
  
     init(input: (account: Driver<String>, password: Driver<String>,registerTap: Signal<Void>)) {
-
+        
         // 账号验证
         accountValidated = input.account.map{
             let valid = ValidationRuleLength(min: 8, max: 18, lengthType: .utf8, error: ValidatorError(message: "无效账号"))
@@ -44,7 +41,6 @@ class RegisterViewModel {
             let valid = ValidationRuleLength(min: 6, max: 18, error: ValidatorError(message: "密码无效"))
             return $0.validate(rule: valid).isValid
         }
-        
        registerEnable = Driver.combineLatest(accountValidated, passwordValidated) {
             $0 && $1
         }.distinctUntilChanged() // 丢弃重复值

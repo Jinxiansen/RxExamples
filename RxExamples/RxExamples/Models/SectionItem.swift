@@ -11,6 +11,7 @@ import Foundation
 enum RxType {
     case tap
     case register
+    case word
 }
 
 struct TableItem {

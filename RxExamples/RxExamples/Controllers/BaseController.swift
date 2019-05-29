@@ -19,6 +19,10 @@ class BaseController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    deinit {
+        print("释放：\(String(describing: Mirror(reflecting: self).subjectType))\n")
+    }
 
 }
 

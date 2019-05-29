@@ -15,5 +15,7 @@ target 'RxExamples' do
   pod 'Moya-ObjectMapper' # https://github.com/bmoliveira/Moya-ObjectMapper
   pod 'Validator', git: 'https://github.com/adamwaite/Validator.git' # 表单验证
   pod 'SVProgressHUD'
+  pod 'Then'
+  pod 'MJRefresh'
   
 end

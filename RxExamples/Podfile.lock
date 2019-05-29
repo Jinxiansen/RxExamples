@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
   - Differentiator (3.1.0)
+  - MJRefresh (3.2.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya-ObjectMapper (2.8):
@@ -26,9 +27,11 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - SVProgressHUD (2.2.5)
+  - Then (2.4.0)
   - Validator (3.1.1)
 
 DEPENDENCIES:
+  - MJRefresh
   - Moya-ObjectMapper
   - Moya/RxSwift
   - "NSObject+Rx"
@@ -37,12 +40,14 @@ DEPENDENCIES:
   - RxDataSources
   - RxSwift
   - SVProgressHUD
+  - Then
   - Validator (from `https://github.com/adamwaite/Validator.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Differentiator
+    - MJRefresh
     - Moya
     - Moya-ObjectMapper
     - "NSObject+Rx"
@@ -52,6 +57,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SVProgressHUD
+    - Then
 
 EXTERNAL SOURCES:
   Validator:
@@ -65,6 +71,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
@@ -74,8 +81,9 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Validator: b34ab17a8fffd0c1ffd8f9002ead4d1e02cd9e6e
 
-PODFILE CHECKSUM: 484f44e383eddf82dea280a708bd30f9e5c1d564
+PODFILE CHECKSUM: 7ce94ee24e2ad3bd93dd7d2fd7a315a318388513
 
 COCOAPODS: 1.6.1

@@ -32,13 +32,13 @@ class RegisterController: BaseController {
         accountField.rx.text.orEmpty.map({$0[0..<18]}).bind(to: accountField.rx.text).disposed(by: rx.disposeBag)
         passwordField.rx.text.orEmpty.map({$0[0..<18]}).bind(to: passwordField.rx.text).disposed(by: rx.disposeBag)
 
-        viewModel.registerEnable.drive(onNext: {
-            self.registerButton.isEnabled = $0
-            self.registerButton.alpha = $0 ? 1:0.5
+        viewModel.registerEnable.drive(onNext: { [weak self] in
+            self?.registerButton.isEnabled = $0
+            self?.registerButton.alpha = $0 ? 1:0.5
         }).disposed(by: rx.disposeBag)
-        
-        registerButton.rx.tap.subscribe(onNext: { _ in
-            self.registerTapped()
+
+        registerButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.registerTapped()
         }).disposed(by: rx.disposeBag)
     }
     
