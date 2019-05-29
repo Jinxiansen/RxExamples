@@ -35,20 +35,19 @@ class RegisterViewModel {
 
         // 账号验证
         accountValidated = input.account.map{
-            let valid = ValidationRuleLength(min: 8, max: 20, lengthType: .utf8, error: ValidatorError(message: "无效账号"))
+            let valid = ValidationRuleLength(min: 8, max: 18, lengthType: .utf8, error: ValidatorError(message: "无效账号"))
             return $0.validate(rule: valid).isValid
         }
         
         // 密码验证
         passwordValidated = input.password.map{
-            let valid = ValidationRuleLength(min: 6, max: 20, error: ValidatorError(message: "密码无效"))
+            let valid = ValidationRuleLength(min: 6, max: 18, error: ValidatorError(message: "密码无效"))
             return $0.validate(rule: valid).isValid
         }
         
        registerEnable = Driver.combineLatest(accountValidated, passwordValidated) {
             $0 && $1
         }.distinctUntilChanged() // 丢弃重复值
-
     }
     
     func registerUser(account: String,password: String) -> Observable<Token> {

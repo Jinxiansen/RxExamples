@@ -20,7 +20,7 @@ extension MoyaProvider {
             case .success(let value):
                 completion?(value.toResult())
             case .failure(let err):
-                print("请求出错：\(err)")
+                print("\n请求出错：\(err)\n")
                 completion?(VResult.dataError())
             }
         })
