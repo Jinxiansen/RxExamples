@@ -28,7 +28,7 @@ class RegisterViewModel: NSObject {
     
     let registerEnable: Driver<Bool>
  
-    init(input: (account: Driver<String>, password: Driver<String>,registerTap: Signal<Void>)) {
+    init(input: (account: Driver<String>, password: Driver<String>)) {
         
         // 账号验证
         accountValidated = input.account.map{

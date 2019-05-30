@@ -26,8 +26,7 @@ class RegisterController: BaseController {
     func bindRxEvent() {
         
         viewModel = RegisterViewModel(input: (account: accountField.rx.text.orEmpty.asDriver(),
-                                              password: passwordField.rx.text.orEmpty.asDriver(),
-                                              registerButton.rx.tap.asSignal()))
+                                              password: passwordField.rx.text.orEmpty.asDriver()))
         
         accountField.rx.text.orEmpty.map({$0[0..<18]}).bind(to: accountField.rx.text).disposed(by: rx.disposeBag)
         passwordField.rx.text.orEmpty.map({$0[0..<18]}).bind(to: passwordField.rx.text).disposed(by: rx.disposeBag)
