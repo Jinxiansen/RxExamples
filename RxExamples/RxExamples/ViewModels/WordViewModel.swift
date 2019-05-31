@@ -60,21 +60,15 @@ extension WordViewModel: ViewModelType {
         out.isRequestNext.subscribe(onNext: { (isNext) in
             
             self.page = isNext ? self.page + 1 : 1 // true = 第一页，false = 下一页
-            WordProvider.requestData(.word(text: input.searchText,page: self.page)).mapObjects(Word.self).subscribe(onNext: { (s) in
-                var result = s
-                if self.page > 2 {
-                    result = []
-                }
+            WordProvider.requestData(.word(text: input.searchText,page: self.page)).mapObjects(Word.self).subscribe(onNext: { (result) in
                 self.models.value = isNext ? (self.models.value + result): result
                 print("总数据：\(self.models.value.count)条\n")
-                
                 self.refreshStatus.onNext(.footerStatus(isHidden: self.models.value.isEmpty, isNoMoreData: result.count == 0))
                 
             }, onError: { e in
                 print("获取词语出错: \(e)\n")
                 self.refreshStatus.onNext(.endAllRefresh)
             }, onCompleted: {
-                
                 print("请求完毕,当前页码：\(self.page)")
             }).disposed(by:self.bag)
             

@@ -48,9 +48,9 @@ class WordController: BaseController {
         
         // 添加下拉刷新
         viewModel.refreshBind(to: tableView, header: {
-            output.isRequestNext.onNext(false)
+            output.isRequestNext.onNext(false) // 头部刷新
         }) {
-            output.isRequestNext.onNext(true)
+            output.isRequestNext.onNext(true) // 下一页
         }.disposed(by: rx.disposeBag)
         
         Observable.zip(tableView.rx.itemSelected,tableView.rx.modelSelected(Word.self)).subscribe(onNext: { [weak self] (index,word) in
