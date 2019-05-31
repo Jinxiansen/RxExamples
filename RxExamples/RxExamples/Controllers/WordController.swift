@@ -46,13 +46,12 @@ class WordController: BaseController {
         
         output.sections.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
         
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            output.isRequestNext.onNext(true)
-        })
-        
-        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+        // 添加下拉刷新
+        viewModel.refreshBind(to: tableView, header: {
             output.isRequestNext.onNext(false)
-        })
+        }) {
+            output.isRequestNext.onNext(true)
+        }.disposed(by: rx.disposeBag)
         
         Observable.zip(tableView.rx.itemSelected,tableView.rx.modelSelected(Word.self)).subscribe(onNext: { [weak self] (index,word) in
             self?.tableView.deselectRow(at: index, animated: false)
@@ -60,27 +59,8 @@ class WordController: BaseController {
             SVProgressHUD.showInfo(withStatus: word.ci)
         }).disposed(by: rx.disposeBag)
         
-        output.isRequestNext.onNext(true) //
-        
-        SVProgressHUD.show()
-        output.refreshStatus.asObservable().subscribe(onNext: { status in
-            
-            SVProgressHUD.dismiss()
-            switch status {
-            case .none:
-                break
-            case .begingHeaderRefresh:
-                self.tableView.mj_header.beginRefreshing()
-            case .endHeaderRefresh:
-                self.tableView.mj_header.endRefreshing()
-            case .begingFooterRefresh:
-                self.tableView.mj_footer.beginRefreshing()
-            case .endFooterRefresh:
-                self.tableView.mj_footer.endRefreshing()
-            case .noMoreData:
-                self.tableView.mj_footer.endRefreshingWithNoMoreData()
-            }
-        }).disposed(by: rx.disposeBag)
+        output.isRequestNext.onNext(false) // 触发刷新第一页; true = 第一页，false = 下一页
+    
         
     }
 }

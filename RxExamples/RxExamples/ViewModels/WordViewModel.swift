@@ -10,10 +10,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class WordViewModel: NSObject {
+class WordViewModel: Refreshable {
+    var refreshStatus = BehaviorSubject<RefreshStatus>(value: .none)
     
     let models = Variable<[Word]>([])
     var page: Int = 1
+    
+    let bag = DisposeBag()
     
 }
 
@@ -41,10 +44,7 @@ extension WordViewModel: ViewModelType {
         
         // 传入是否加载下一页
         let  isRequestNext = PublishSubject<Bool>()
-        
-        //刷新状态
-        let refreshStatus = Variable<RefreshStatus>(.none)
-        
+
         init(sections:Driver<[WordSection]>) {
             self.sections = sections
         }
@@ -59,18 +59,26 @@ extension WordViewModel: ViewModelType {
         let out = WordOutput(sections: sections)
         out.isRequestNext.subscribe(onNext: { (isNext) in
             
-            self.page = isNext ? 1: self.page + 1 // 
+            self.page = isNext ? self.page + 1 : 1 // true = 第一页，false = 下一页
             WordProvider.requestData(.word(text: input.searchText,page: self.page)).mapObjects(Word.self).subscribe(onNext: { (s) in
-                self.models.value = isNext ? s : (self.models.value + s)
+                var result = s
+                if self.page > 2 {
+                    result = []
+                }
+                self.models.value = isNext ? (self.models.value + result): result
                 print("总数据：\(self.models.value.count)条\n")
+                
+                self.refreshStatus.onNext(.footerStatus(isHidden: self.models.value.isEmpty, isNoMoreData: result.count == 0))
+                
             }, onError: { e in
                 print("获取词语出错: \(e)\n")
+                self.refreshStatus.onNext(.endAllRefresh)
             }, onCompleted: {
-                out.refreshStatus.value = isNext ? .endHeaderRefresh : .endFooterRefresh
+                
                 print("请求完毕,当前页码：\(self.page)")
-            }).disposed(by:self.rx.disposeBag)
+            }).disposed(by:self.bag)
             
-        }).disposed(by: self.rx.disposeBag)
+        }).disposed(by: bag)
         
         return out
     }

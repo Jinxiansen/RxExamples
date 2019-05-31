@@ -39,6 +39,9 @@
 		3C9DC2AE229E83F700B3DCA9 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2AD229E83F700B3DCA9 /* BaseApi.swift */; };
 		3C9DC2B1229E8B7900B3DCA9 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DC2AF229E8B7900B3DCA9 /* WordCell.swift */; };
 		3C9DC2B2229E8B7900B3DCA9 /* WordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C9DC2B0229E8B7900B3DCA9 /* WordCell.xib */; };
+		3CB7DAA722A1048A00ADFEF6 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7DAA622A1048A00ADFEF6 /* Refreshable.swift */; };
+		3CB7DAAA22A1058B00ADFEF6 /* BaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7DAA922A1058B00ADFEF6 /* BaseRefreshHeader.swift */; };
+		3CB7DAAC22A1059700ADFEF6 /* BaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7DAAB22A1059700ADFEF6 /* BaseRefreshFooter.swift */; };
 		A7BFA96537B2407676DFF2F3 /* Pods_RxExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99099862A5B692348D851E0F /* Pods_RxExamples.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +82,9 @@
 		3C9DC2AD229E83F700B3DCA9 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		3C9DC2AF229E8B7900B3DCA9 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		3C9DC2B0229E8B7900B3DCA9 /* WordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordCell.xib; sourceTree = "<group>"; };
+		3CB7DAA622A1048A00ADFEF6 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		3CB7DAA922A1058B00ADFEF6 /* BaseRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshHeader.swift; sourceTree = "<group>"; };
+		3CB7DAAB22A1059700ADFEF6 /* BaseRefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshFooter.swift; sourceTree = "<group>"; };
 		99099862A5B692348D851E0F /* Pods_RxExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3E8040E72BB87731D70522 /* Pods-RxExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamples.release.xcconfig"; path = "Target Support Files/Pods-RxExamples/Pods-RxExamples.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9DC29C229E601B00B3DCA9 /* Constant.swift */,
-				3C9DC2A9229E7F9200B3DCA9 /* RefreshStatus.swift */,
+				3CB7DAA822A1049300ADFEF6 /* Refresh */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -208,6 +214,17 @@
 				3C9DC2B0229E8B7900B3DCA9 /* WordCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3CB7DAA822A1049300ADFEF6 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				3C9DC2A9229E7F9200B3DCA9 /* RefreshStatus.swift */,
+				3CB7DAA622A1048A00ADFEF6 /* Refreshable.swift */,
+				3CB7DAA922A1058B00ADFEF6 /* BaseRefreshHeader.swift */,
+				3CB7DAAB22A1059700ADFEF6 /* BaseRefreshFooter.swift */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		50748A27034F7DA3435110E1 /* Frameworks */ = {
@@ -401,8 +418,11 @@
 				3C773838229E239F00CFC54D /* Moya+Ext.swift in Sources */,
 				3C7737F9229BEDC100CFC54D /* AppDelegate.swift in Sources */,
 				3C77382C229D343800CFC54D /* ErrorType.swift in Sources */,
+				3CB7DAA722A1048A00ADFEF6 /* Refreshable.swift in Sources */,
+				3CB7DAAC22A1059700ADFEF6 /* BaseRefreshFooter.swift in Sources */,
 				3C773833229E229800CFC54D /* UIStoryboard+Ext.swift in Sources */,
 				3C9DC2AE229E83F700B3DCA9 /* BaseApi.swift in Sources */,
+				3CB7DAAA22A1058B00ADFEF6 /* BaseRefreshHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
