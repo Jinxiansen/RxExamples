@@ -25,11 +25,3 @@ class BaseController: UIViewController {
     }
 
 }
-
-
-class BaseNavigationController: UINavigationController {
-    
-    override var childForStatusBarStyle: UIViewController? {
-        return self.topViewController
-    }
-}

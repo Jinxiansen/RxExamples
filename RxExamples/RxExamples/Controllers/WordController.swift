@@ -15,6 +15,7 @@ class WordController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "中国"
         view.addSubview(tableView)
         bindViewEvent()
         
@@ -41,7 +42,7 @@ class WordController: BaseController {
     func bindViewEvent() {
         
         let viewModel = WordViewModel()
-        let input = WordViewModel.Input(searchText: "中国")
+        let input = WordViewModel.Input(searchText: title ?? "")
         let output = viewModel.transform(input: input)
         
         output.sections.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)

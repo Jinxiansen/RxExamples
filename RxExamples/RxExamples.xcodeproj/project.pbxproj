@@ -13,7 +13,7 @@
 		3C773800229BEDC300CFC54D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C7737FF229BEDC300CFC54D /* Assets.xcassets */; };
 		3C773803229BEDC300CFC54D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C773801229BEDC300CFC54D /* LaunchScreen.storyboard */; };
 		3C77380F229BF48B00CFC54D /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C77380E229BF48B00CFC54D /* NSObject+Ext.swift */; };
-		3C773811229BF65900CFC54D /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C773810229BF65900CFC54D /* SectionItem.swift */; };
+		3C773811229BF65900CFC54D /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C773810229BF65900CFC54D /* SectionType.swift */; };
 		3C773816229CC98400CFC54D /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C773815229CC98400CFC54D /* RegisterController.swift */; };
 		3C773818229CC99D00CFC54D /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C773817229CC99C00CFC54D /* BaseController.swift */; };
 		3C77381E229CD1DC00CFC54D /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C77381D229CD1DC00CFC54D /* UserApi.swift */; };
@@ -42,6 +42,7 @@
 		3CB7DAA722A1048A00ADFEF6 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7DAA622A1048A00ADFEF6 /* Refreshable.swift */; };
 		3CB7DAAA22A1058B00ADFEF6 /* BaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7DAA922A1058B00ADFEF6 /* BaseRefreshHeader.swift */; };
 		3CB7DAAC22A1059700ADFEF6 /* BaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB7DAAB22A1059700ADFEF6 /* BaseRefreshFooter.swift */; };
+		41533CCA22A2D39D00A20895 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41533CC922A2D39D00A20895 /* BaseNavigationController.swift */; };
 		A7BFA96537B2407676DFF2F3 /* Pods_RxExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99099862A5B692348D851E0F /* Pods_RxExamples.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +57,7 @@
 		3C773804229BEDC300CFC54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C77380A229BF2C100CFC54D /* RxExamples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxExamples-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C77380E229BF48B00CFC54D /* NSObject+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
-		3C773810229BF65900CFC54D /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
+		3C773810229BF65900CFC54D /* SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		3C773815229CC98400CFC54D /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		3C773817229CC99C00CFC54D /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		3C77381D229CD1DC00CFC54D /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		3CB7DAA622A1048A00ADFEF6 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		3CB7DAA922A1058B00ADFEF6 /* BaseRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshHeader.swift; sourceTree = "<group>"; };
 		3CB7DAAB22A1059700ADFEF6 /* BaseRefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshFooter.swift; sourceTree = "<group>"; };
+		41533CC922A2D39D00A20895 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		99099862A5B692348D851E0F /* Pods_RxExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3E8040E72BB87731D70522 /* Pods-RxExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamples.release.xcconfig"; path = "Target Support Files/Pods-RxExamples/Pods-RxExamples.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				3C773817229CC99C00CFC54D /* BaseController.swift */,
+				41533CC922A2D39D00A20895 /* BaseNavigationController.swift */,
 				3C7737FA229BEDC100CFC54D /* HomeController.swift */,
 				3C9DC28E229E244200B3DCA9 /* TapController.swift */,
 				3C773815229CC98400CFC54D /* RegisterController.swift */,
@@ -154,7 +157,7 @@
 		3C77381A229CCA1600CFC54D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3C773810229BF65900CFC54D /* SectionItem.swift */,
+				3C773810229BF65900CFC54D /* SectionType.swift */,
 				3C773825229D139400CFC54D /* VResult.swift */,
 				3C9DC2A7229E7CA500B3DCA9 /* WordModel.swift */,
 			);
@@ -326,6 +329,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
@@ -345,6 +349,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
@@ -393,13 +398,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C9DC28F229E244200B3DCA9 /* TapController.swift in Sources */,
-				3C773811229BF65900CFC54D /* SectionItem.swift in Sources */,
+				3C773811229BF65900CFC54D /* SectionType.swift in Sources */,
 				3C9DC2AC229E82C100B3DCA9 /* WordApi.swift in Sources */,
 				3C77381E229CD1DC00CFC54D /* UserApi.swift in Sources */,
 				3C7737FB229BEDC100CFC54D /* HomeController.swift in Sources */,
 				3C773816229CC98400CFC54D /* RegisterController.swift in Sources */,
 				3C77380F229BF48B00CFC54D /* NSObject+Ext.swift in Sources */,
 				3C773831229E227900CFC54D /* UITableView+Ext.swift in Sources */,
+				41533CCA22A2D39D00A20895 /* BaseNavigationController.swift in Sources */,
 				3C9DC2A8229E7CA500B3DCA9 /* WordModel.swift in Sources */,
 				3C9DC2B1229E8B7900B3DCA9 /* WordCell.swift in Sources */,
 				3C9DC2A3229E62FF00B3DCA9 /* WordController.swift in Sources */,

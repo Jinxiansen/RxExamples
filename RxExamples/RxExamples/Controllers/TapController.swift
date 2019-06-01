@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class TapController: BaseController {
 
@@ -14,6 +15,8 @@ class TapController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        tapButton.hero.id = "abcd"
         
         tapButton.rx.tap.do(onNext: { _ in
             SVProgressHUD.show()

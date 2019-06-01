@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
   - Differentiator (3.1.0)
+  - Hero (1.4.0)
   - MJRefresh (3.2.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -31,6 +32,7 @@ PODS:
   - Validator (3.1.1)
 
 DEPENDENCIES:
+  - Hero
   - MJRefresh
   - Moya-ObjectMapper
   - Moya/RxSwift
@@ -47,6 +49,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Differentiator
+    - Hero
     - MJRefresh
     - Moya
     - Moya-ObjectMapper
@@ -71,6 +74,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
@@ -84,6 +88,6 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Validator: b34ab17a8fffd0c1ffd8f9002ead4d1e02cd9e6e
 
-PODFILE CHECKSUM: 7ce94ee24e2ad3bd93dd7d2fd7a315a318388513
+PODFILE CHECKSUM: 8671e3bd27b40a278ebcc4c546be73ce698b021d
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.6.0.beta.2

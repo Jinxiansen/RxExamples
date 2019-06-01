@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class HomeController: BaseController {
 
@@ -24,7 +25,7 @@ class HomeController: BaseController {
         tableView.registerCell(class: UITableViewCell.self)
         tableView.tableFooterView = UIView()
         
-        let sec1 = SectionOfTableItem(header: "RxSwift", items: [
+        let sec1 = SectionType<TableItem>(header: "RxSwift", items: [
             TableItem(title: "点击事件", type: RxType.tap),
             TableItem(title: "登录注册", type: RxType.register),
             TableItem(title: "词语查询", type: RxType.word)
@@ -44,11 +45,14 @@ class HomeController: BaseController {
             }).disposed(by: rx.disposeBag)
     }
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionOfTableItem>(
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionType<TableItem>>(
         configureCell: { dataSource, tableView, indexPath, item in
             
             let cell = tableView.dequeueReusable(class: UITableViewCell.self)
             cell.textLabel?.text = "\(indexPath.row + 1). \(item.title)"
+//            if item.type == .tap {
+//                cell.hero.id = "abcd"
+//            }
             return cell
             
     }, titleForHeaderInSection: { (dataSource, section) -> String? in

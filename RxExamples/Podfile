@@ -17,5 +17,5 @@ target 'RxExamples' do
   pod 'SVProgressHUD'
   pod 'Then'
   pod 'MJRefresh'
-  
+  pod 'Hero'  # https://github.com/HeroTransitions/Hero
 end

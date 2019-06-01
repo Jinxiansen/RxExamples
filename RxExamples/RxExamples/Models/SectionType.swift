@@ -19,15 +19,16 @@ struct TableItem {
     var type: RxType
 }
 
-struct SectionOfTableItem {
+//
+struct SectionType<T> {
     var header: String
-    var items: [Item]
+    var items: [T]
 }
 
-extension SectionOfTableItem: SectionModelType {
-    typealias Item = TableItem
+extension SectionType: SectionModelType {
+    typealias Item = T
     
-    init(original: SectionOfTableItem, items: [Item]) {
+    init(original: SectionType, items: [T]) {
         self = original
         self.items = items
     }
