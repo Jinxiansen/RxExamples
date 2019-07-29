@@ -35,8 +35,8 @@ class JobController: BaseTableController {
 
         let output = viewModel.transform(input: input)
 
-        emptyDataSetButtonTap.subscribe(onNext: { () in
-            self.headerRefreshTrigger.onNext(())
+        emptyDataSetButtonTap.subscribe(onNext: { [weak self] _ in
+            self?.headerRefreshTrigger.onNext(())
         }).disposed(by: rx.disposeBag)
 
         output.items.bind(to: tableView.rx.items(cellIdentifier: JobCell.nameOfClass,
@@ -44,7 +44,9 @@ class JobController: BaseTableController {
                                                     cell.item = element
             }.disposed(by: rx.disposeBag)
 
-        tableView.rx.modelSelected(JobItem.self).subscribe(onNext: { item in
+        Observable.zip(tableView.rx.modelSelected(JobItem.self),tableView.rx.itemSelected)
+            .subscribe(onNext: { [weak self] (item,indexPath) in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
             SVProgressHUD.showInfo(withStatus: item.publisher ?? "")
         }).disposed(by: rx.disposeBag)
 
