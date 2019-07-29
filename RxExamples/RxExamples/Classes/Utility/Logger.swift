@@ -1,6 +1,6 @@
 //
 //  Logger.swift
-//  AelfApp
+//  RxExamples
 //
 //  Created by 晋先森 on 2019/5/24.
 //  Copyright © 2019 legenddigital. All rights reserved.
