@@ -1,15 +1,16 @@
 ![](images/icon.png)
 
 
-### 📜
-- [x] 添加简单注册登录绑定事件实例；
-- [x] 数据列表网络请求、刷新。
+## 内容
+- [x] 简单注册登录绑定；
+- [x] 网络数据请求、分页、刷新绑定。
 
+## Screenshot
 
-### 截图
 <img src="images/job.png" width="40%"/>
 
-### Example
+
+## Example
 
 `Controller` 的实现：
 
@@ -132,5 +133,16 @@ extension JobViewModel {
 
 ```
 
-如果有更好的建议或写法，期待能够分享。
 
+## About
+
+* 如果有更好的建议或写法，期待能够分享。
+
+## Contacts
+
+晋先森： hi@jinxiansen.com
+
+
+## License	
+
+[MIT license](LICENSE)
