@@ -1,8 +1,43 @@
 PODS:
   - Alamofire (4.8.2)
   - Differentiator (3.1.0)
+  - DZNEmptyDataSet (1.8.1)
   - Hero (1.4.0)
-  - MJRefresh (3.2.0)
+  - KafkaRefresh (1.4.7):
+    - KafkaRefresh/Category (= 1.4.7)
+    - KafkaRefresh/Configuration (= 1.4.7)
+    - KafkaRefresh/Core (= 1.4.7)
+    - KafkaRefresh/Default (= 1.4.7)
+    - KafkaRefresh/Style (= 1.4.7)
+    - KafkaRefresh/UIKit (= 1.4.7)
+  - KafkaRefresh/Category (1.4.7)
+  - KafkaRefresh/Configuration (1.4.7):
+    - KafkaRefresh/UIKit/FootKit
+    - KafkaRefresh/UIKit/HeadKit
+  - KafkaRefresh/Core (1.4.7):
+    - KafkaRefresh/Category
+  - KafkaRefresh/Default (1.4.7):
+    - KafkaRefresh/Style
+  - KafkaRefresh/Style (1.4.7)
+  - KafkaRefresh/UIKit (1.4.7):
+    - KafkaRefresh/UIKit/FootKit (= 1.4.7)
+    - KafkaRefresh/UIKit/HeadKit (= 1.4.7)
+    - KafkaRefresh/UIKit/LayerKit (= 1.4.7)
+  - KafkaRefresh/UIKit/FootKit (1.4.7):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/HeadKit (1.4.7):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (1.4.7):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Default
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya-ObjectMapper (2.8):
@@ -28,29 +63,52 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - SVProgressHUD (2.2.5)
-  - Then (2.4.0)
+  - SwifterSwift (5.0.0):
+    - SwifterSwift/AppKit (= 5.0.0)
+    - SwifterSwift/CoreGraphics (= 5.0.0)
+    - SwifterSwift/CoreLocation (= 5.0.0)
+    - SwifterSwift/Dispatch (= 5.0.0)
+    - SwifterSwift/Foundation (= 5.0.0)
+    - SwifterSwift/MapKit (= 5.0.0)
+    - SwifterSwift/SpriteKit (= 5.0.0)
+    - SwifterSwift/SwiftStdlib (= 5.0.0)
+    - SwifterSwift/UIKit (= 5.0.0)
+  - SwifterSwift/AppKit (5.0.0)
+  - SwifterSwift/CoreGraphics (5.0.0)
+  - SwifterSwift/CoreLocation (5.0.0)
+  - SwifterSwift/Dispatch (5.0.0)
+  - SwifterSwift/Foundation (5.0.0)
+  - SwifterSwift/MapKit (5.0.0)
+  - SwifterSwift/SpriteKit (5.0.0)
+  - SwifterSwift/SwiftStdlib (5.0.0)
+  - SwifterSwift/UIKit (5.0.0)
+  - Then (2.5.0)
   - Validator (3.1.1)
+  - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet (~> 1.8.1)
   - Hero
-  - MJRefresh
+  - KafkaRefresh (~> 1.4.7)
   - Moya-ObjectMapper
   - Moya/RxSwift
   - "NSObject+Rx"
-  - Result
   - RxCocoa
   - RxDataSources
   - RxSwift
   - SVProgressHUD
-  - Then
+  - SwifterSwift (~> 5.0.0)
+  - Then (~> 2.5.0)
   - Validator (from `https://github.com/adamwaite/Validator.git`)
+  - ViewAnimator (~> 2.5.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Differentiator
+    - DZNEmptyDataSet
     - Hero
-    - MJRefresh
+    - KafkaRefresh
     - Moya
     - Moya-ObjectMapper
     - "NSObject+Rx"
@@ -60,7 +118,9 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SVProgressHUD
+    - SwifterSwift
     - Then
+    - ViewAnimator
 
 EXTERNAL SOURCES:
   Validator:
@@ -74,8 +134,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  KafkaRefresh: a7962ea8f03f384c1b545d8c27ac419aa0d5b055
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
@@ -85,9 +146,11 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+  SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
+  Then: 0157115e883545c77967b452fe74a1d25fb796e1
   Validator: b34ab17a8fffd0c1ffd8f9002ead4d1e02cd9e6e
+  ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: 8671e3bd27b40a278ebcc4c546be73ce698b021d
+PODFILE CHECKSUM: 4b6223f540e5d7fd7ec42611a156ca81eb8ac191
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.1

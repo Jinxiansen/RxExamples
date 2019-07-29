@@ -1,13 +1,10 @@
 platform :ios, '9.0'
 inhibit_all_warnings!
-use_frameworks!
 
 target 'RxExamples' do
   use_frameworks!
 
-#  pod 'Moya' # 网络请求 https://github.com/Moya/Moya
   pod 'Moya/RxSwift'
-  pod 'Result' # https://github.com/antitypical/Result
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'NSObject+Rx' # 
@@ -15,7 +12,12 @@ target 'RxExamples' do
   pod 'Moya-ObjectMapper' # https://github.com/bmoliveira/Moya-ObjectMapper
   pod 'Validator', git: 'https://github.com/adamwaite/Validator.git' # 表单验证
   pod 'SVProgressHUD'
-  pod 'Then'
-  pod 'MJRefresh'
   pod 'Hero'  # https://github.com/HeroTransitions/Hero
+  pod 'DZNEmptyDataSet', '~> 1.8.1'  # 空态 https://github.com/dzenbot/DZNEmptyDataSet
+  pod 'KafkaRefresh', '~> 1.4.7' # 刷新框架 https://github.com/OpenFeyn/KafkaRefresh
+  pod 'Then', '~> 2.5.0' # 语法糖 https://github.com/devxoul/Then
+  pod 'ViewAnimator', '~> 2.5.1' # 动画库 https://github.com/marcosgriselli/ViewAnimator
+  pod 'SwifterSwift', '~> 5.0.0' # 类似 YYKit https://github.com/SwifterSwift/SwifterSwift
+
+
 end
