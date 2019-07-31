@@ -9,13 +9,13 @@
 import UIKit
 
 class RegisterController: BaseController {
- 
+    
     @IBOutlet weak var accountField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     @IBOutlet weak var registerButton: UIButton!
     
-    var viewModel: RegisterViewModel! = nil
+    var viewModel = RegisterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,27 +25,27 @@ class RegisterController: BaseController {
     
     func bindViewModel() {
         
-        viewModel = RegisterViewModel(input: (account: accountField.rx.text.orEmpty.asDriver(),
-                                              password: passwordField.rx.text.orEmpty.asDriver()))
-        
         accountField.rx.text.orEmpty.map({$0[0..<18]}).bind(to: accountField.rx.text).disposed(by: rx.disposeBag)
         passwordField.rx.text.orEmpty.map({$0[0..<18]}).bind(to: passwordField.rx.text).disposed(by: rx.disposeBag)
-
-        viewModel.registerEnable.drive(onNext: { [weak self] in
+        
+        let input = RegisterViewModel.Input(account: accountField.asDriver(), password: passwordField.asDriver())
+        let output = viewModel.transform(input: input)
+        
+        output.registerEnable.drive(onNext: { [weak self] in
             self?.registerButton.isEnabled = $0
             self?.registerButton.alpha = $0 ? 1:0.75
         }).disposed(by: rx.disposeBag)
-
+        
         registerButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.registerTapped()
         }).disposed(by: rx.disposeBag)
     }
     
-    
     func registerTapped() {
         
-        guard let account = accountField.text,let password = passwordField.text else { return }
-
+        guard let account = accountField.text,
+            let password = passwordField.text else { return }
+        
         SVProgressHUD.show()
         viewModel.registerUser(account: account, password: password).subscribe(onNext: { t in
             SVProgressHUD.showSuccess(withStatus: "注册成功")
@@ -60,5 +60,5 @@ class RegisterController: BaseController {
         
         
     }
-
+    
 }

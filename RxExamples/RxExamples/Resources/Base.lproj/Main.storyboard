@@ -56,16 +56,16 @@
                                         <rect key="frame" x="15" y="10" width="344" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMN-16-8i0">
-                                                <rect key="frame" x="10" y="12" width="80" height="21"/>
+                                                <rect key="frame" x="10" y="12" width="60" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="ojg-ka-2gS"/>
+                                                    <constraint firstAttribute="width" constant="60" id="ojg-ka-2gS"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="长度 8~20 位" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXu-wJ-L1J">
-                                                <rect key="frame" x="100" y="0.0" width="234" height="45"/>
+                                                <rect key="frame" x="80" y="0.0" width="254" height="45"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -93,16 +93,16 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7C-zU-vpj">
-                                                <rect key="frame" x="10" y="12" width="80" height="21"/>
+                                                <rect key="frame" x="10" y="12" width="60" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="xXO-V1-OK7"/>
+                                                    <constraint firstAttribute="width" constant="60" id="xXO-V1-OK7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="长度 6~20 位" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UvY-zW-JFZ">
-                                                <rect key="frame" x="100" y="0.0" width="234" height="45"/>
+                                                <rect key="frame" x="80" y="0.0" width="254" height="45"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V06-r9-Mjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472" y="37"/>
+            <point key="canvasLocation" x="1661" y="725"/>
         </scene>
         <!--Tap-->
         <scene sceneID="YWw-rg-mxe">
@@ -218,6 +218,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqv-Li-Ojb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660.8695652173915" y="36.830357142857139"/>
+        </scene>
+        <!--Back Controller-->
+        <scene sceneID="H2j-cE-glN">
+            <objects>
+                <viewController storyboardIdentifier="BackController" id="iPl-1d-C5N" customClass="BackController" customModule="RxExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ahm-Xv-lUg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAX-P3-bqP">
+                                <rect key="frame" x="30" y="271" width="354" height="354"/>
+                                <color key="backgroundColor" red="0.20601964" green="0.4727274776" blue="0.96474760770000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pAX-P3-bqP" secondAttribute="height" id="lPA-eL-mYM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="51"/>
+                                <state key="normal" title="Back Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pAX-P3-bqP" firstAttribute="leading" secondItem="Cgh-e6-qBj" secondAttribute="leading" constant="30" id="1Bk-tJ-hEJ"/>
+                            <constraint firstItem="Cgh-e6-qBj" firstAttribute="trailing" secondItem="pAX-P3-bqP" secondAttribute="trailing" constant="30" id="PFU-4U-EDT"/>
+                            <constraint firstItem="pAX-P3-bqP" firstAttribute="centerY" secondItem="Ahm-Xv-lUg" secondAttribute="centerY" id="YMH-gu-KHl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cgh-e6-qBj"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="pAX-P3-bqP" id="z6Q-eH-AKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ys-va-LSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="31"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="ayb-PM-x8L">

@@ -8,17 +8,6 @@
 
 import Foundation
 
-enum RxType {
-    case tap
-    case register
-    case word
-}
-
-struct TableItem {
-    var title:String
-    var type: RxType
-}
-
 //
 struct SectionType<T> {
     var header: String

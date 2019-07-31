@@ -45,8 +45,11 @@
 		3C0B8FFC22EF11F800F16E13 /* BaseTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FFB22EF11F800F16E13 /* BaseTableController.swift */; };
 		3C0B8FFE22EF120300F16E13 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FFD22EF120300F16E13 /* BaseTableView.swift */; };
 		3C0B900022EF129800F16E13 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FFF22EF129800F16E13 /* UIColor+Ext.swift */; };
-		3C0B900222EF12FF00F16E13 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B900122EF12FF00F16E13 /* UIViewController+Ext.swift */; };
 		3C0B900422EF136A00F16E13 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B900322EF136A00F16E13 /* UIViewController+Rx.swift */; };
+		412212B322F1EABD00AE352E /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412212B222F1EABD00AE352E /* UIViewController+Ext.swift */; };
+		412212B522F1EE7900AE352E /* TableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412212B422F1EE7900AE352E /* TableItem.swift */; };
+		412212B722F1F0EF00AE352E /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412212B622F1F0EF00AE352E /* UITextField+Ext.swift */; };
+		412212B922F1F2B300AE352E /* BackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412212B822F1F2B300AE352E /* BackController.swift */; };
 		A7BFA96537B2407676DFF2F3 /* Pods_RxExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99099862A5B692348D851E0F /* Pods_RxExamples.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,9 +95,12 @@
 		3C0B8FFB22EF11F800F16E13 /* BaseTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableController.swift; sourceTree = "<group>"; };
 		3C0B8FFD22EF120300F16E13 /* BaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		3C0B8FFF22EF129800F16E13 /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
-		3C0B900122EF12FF00F16E13 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Ext.swift"; path = "../../../../../BestHyperPay/BestHyperPay/BestHyperPay/Classes/Extensions/UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		3C0B900322EF136A00F16E13 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		3C7737F5229BEDC100CFC54D /* RxExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		412212B222F1EABD00AE352E /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		412212B422F1EE7900AE352E /* TableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableItem.swift; path = ../../../../../../../../../../../System/Volumes/Data/Users/jinxiansen/Documents/GitHub/RxExamples/RxExamples/RxExamples/Classes/Modules/Home/Models/TableItem.swift; sourceTree = "<group>"; };
+		412212B622F1F0EF00AE352E /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITextField+Ext.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/jinxiansen/Documents/GitHub/RxExamples/RxExamples/RxExamples/Classes/Extensions/UITextField+Ext.swift"; sourceTree = "<group>"; };
+		412212B822F1F2B300AE352E /* BackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackController.swift; path = ../../../../../../../../../../../System/Volumes/Data/Users/jinxiansen/Documents/GitHub/RxExamples/RxExamples/RxExamples/Classes/Modules/Home/Controllers/BackController.swift; sourceTree = "<group>"; };
 		99099862A5B692348D851E0F /* Pods_RxExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3E8040E72BB87731D70522 /* Pods-RxExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxExamples.release.xcconfig"; path = "Target Support Files/Pods-RxExamples/Pods-RxExamples.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				3C0B8FA622EF098300F16E13 /* BaseAPI.swift */,
-				3C0B8FA422EF098300F16E13 /* UserAPI.swift */,
 				3C0B8FA722EF098300F16E13 /* JobAPI.swift */,
+				3C0B8FA422EF098300F16E13 /* UserAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -159,8 +165,9 @@
 				3C0B8FB122EF098300F16E13 /* UINavigationBar+Ext.swift */,
 				3C0B8FAA22EF098300F16E13 /* UIStoryboard+Ext.swift */,
 				3C0B8FAB22EF098300F16E13 /* UITableView+Ext.swift */,
-				3C0B900122EF12FF00F16E13 /* UIViewController+Ext.swift */,
+				412212B222F1EABD00AE352E /* UIViewController+Ext.swift */,
 				3C0B900322EF136A00F16E13 /* UIViewController+Rx.swift */,
+				412212B622F1F0EF00AE352E /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				3C0B8FBA22EF098300F16E13 /* JobItem.swift */,
+				412212B422F1EE7900AE352E /* TableItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 				3C0B8FBD22EF098300F16E13 /* JobController.swift */,
 				3C0B8FBF22EF098300F16E13 /* RegisterController.swift */,
 				3C0B8FBC22EF098300F16E13 /* TapController.swift */,
+				412212B822F1F2B300AE352E /* BackController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -232,9 +241,9 @@
 		3C0B8FC322EF098300F16E13 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				3C0B8FC422EF098300F16E13 /* ViewModels */,
-				3C0B8FC622EF098300F16E13 /* Models */,
 				3C0B8FC922EF098300F16E13 /* Controllers */,
+				3C0B8FC622EF098300F16E13 /* Models */,
+				3C0B8FC422EF098300F16E13 /* ViewModels */,
 				3C0B8FCC22EF098300F16E13 /* Views */,
 			);
 			path = Base;
@@ -508,6 +517,7 @@
 				3C0B8FF222EF098300F16E13 /* Constant.swift in Sources */,
 				3C0B8FE522EF098300F16E13 /* RegisterViewModel.swift in Sources */,
 				3C0B8FEC22EF098300F16E13 /* JobCell.swift in Sources */,
+				412212B522F1EE7900AE352E /* TableItem.swift in Sources */,
 				3C0B8FE322EF098300F16E13 /* AppDelegate.swift in Sources */,
 				3C0B8FE622EF098300F16E13 /* JobItem.swift in Sources */,
 				3C0B8FF822EF0D9800F16E13 /* Observable+Ext.swift in Sources */,
@@ -521,14 +531,16 @@
 				3C0B8FF022EF098300F16E13 /* BaseController.swift in Sources */,
 				3C0B8FF622EF0CF200F16E13 /* ErrorTracker.swift in Sources */,
 				3C0B8FED22EF098300F16E13 /* BaseViewModel.swift in Sources */,
-				3C0B900222EF12FF00F16E13 /* UIViewController+Ext.swift in Sources */,
+				412212B322F1EABD00AE352E /* UIViewController+Ext.swift in Sources */,
 				3C0B8FDB22EF098300F16E13 /* UIStoryboard+Ext.swift in Sources */,
+				412212B722F1F0EF00AE352E /* UITextField+Ext.swift in Sources */,
 				3C0B8FDF22EF098300F16E13 /* Moya+Ext.swift in Sources */,
 				3C0B8FDC22EF098300F16E13 /* UITableView+Ext.swift in Sources */,
 				3C0B8FEA22EF098300F16E13 /* RegisterController.swift in Sources */,
 				3C0B8FF122EF098300F16E13 /* BaseNavigationController.swift in Sources */,
 				3C0B8FD922EF098300F16E13 /* JobAPI.swift in Sources */,
 				3C0B8FF322EF098300F16E13 /* ActivityIndicator.swift in Sources */,
+				412212B922F1F2B300AE352E /* BackController.swift in Sources */,
 				3C0B8FDD22EF098300F16E13 /* ObservableType+Ext.swift in Sources */,
 				3C0B8FD822EF098300F16E13 /* BaseAPI.swift in Sources */,
 			);

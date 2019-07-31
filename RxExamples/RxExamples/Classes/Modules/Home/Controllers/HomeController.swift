@@ -40,7 +40,7 @@ class HomeController: BaseController {
                 self?.tableView.deselectRow(at: indexPath, animated: false)
                 print("subscribe Item:\(item) index:\(indexPath)\n")
                 
-                self?.didSelected(item)
+                self?.didSelectEvent(item)
                 
             }).disposed(by: rx.disposeBag)
     }
@@ -55,7 +55,7 @@ class HomeController: BaseController {
         return dataSource[section].header
     })
     
-    func didSelected(_ item: TableItem) {
+    func didSelectEvent(_ item: TableItem) {
         
         var t = UIViewController.self
         switch item.type {
@@ -70,7 +70,7 @@ class HomeController: BaseController {
             return // 
         }
         
-        push(controller: UIStoryboard.loadController(controller: t))
+        push(controller: UIStoryboard.load(controller: t))
     }
 }
 
