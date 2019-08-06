@@ -1,5 +1,5 @@
 //
-//  TableItem.swift
+//  TapItem.swift
 //  RxExamples
 //
 //  Created by 晋先森 on 2019/7/31.
@@ -14,7 +14,7 @@ enum RxType {
     case word
 }
 
-struct TableItem {
+struct TapItem {
     var title:String
     var type: RxType
 }

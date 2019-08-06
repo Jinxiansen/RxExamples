@@ -25,16 +25,16 @@ class HomeController: BaseController {
         tableView.registerCell(class: UITableViewCell.self)
         tableView.tableFooterView = UIView()
         
-        let sec1 = SectionType<TableItem>(header: "RxSwift", items: [
-            TableItem(title: "点击事件", type: RxType.tap),
-            TableItem(title: "登录注册", type: RxType.register),
-            TableItem(title: "数据列表", type: RxType.word)
+        let sec1 = SectionType<TapItem>(header: "RxSwift", items: [
+            TapItem(title: "点击事件", type: RxType.tap),
+            TapItem(title: "登录注册", type: RxType.register),
+            TapItem(title: "数据列表", type: RxType.word)
             ])
         
         Observable.just([sec1]).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
 
         Observable
-            .zip(tableView.rx.modelSelected(TableItem.self),tableView.rx.itemSelected)
+            .zip(tableView.rx.modelSelected(TapItem.self),tableView.rx.itemSelected)
             .subscribe(onNext: { [weak self] (item,indexPath) in
                 
                 self?.tableView.deselectRow(at: indexPath, animated: false)
@@ -45,7 +45,7 @@ class HomeController: BaseController {
             }).disposed(by: rx.disposeBag)
     }
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionType<TableItem>>(
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionType<TapItem>>(
         configureCell: { dataSource, tableView, indexPath, item in
             let cell = tableView.dequeueReusable(class: UITableViewCell.self)
             cell.textLabel?.text = "\(indexPath.row + 1). \(item.title)"
@@ -55,7 +55,7 @@ class HomeController: BaseController {
         return dataSource[section].header
     })
     
-    func didSelectEvent(_ item: TableItem) {
+    func didSelectEvent(_ item: TapItem) {
         
         var t = UIViewController.self
         switch item.type {

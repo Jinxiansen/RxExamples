@@ -8,14 +8,15 @@
 
 import Foundation
 
+let UserProvider = MoyaProvider<UserAPI>(endpointClosure:MoyaProvider.JSONEndpointMapping,
+                                         plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: BaseAPI.jsonResponseDataFormatter),BaseAPI.networkActivityPlugin])
+
+
 enum UserAPI {
     case register(account: String,password: String)
     case userInfo
-    
-}
 
-let UserProvider = MoyaProvider<UserAPI>(endpointClosure:MoyaProvider.JSONEndpointMapping,
-                                         plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: BaseAPI.jsonResponseDataFormatter),BaseAPI.networkActivityPlugin])
+}
 
 extension UserAPI: TargetType {
     var baseURL: URL {
