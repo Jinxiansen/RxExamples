@@ -21,33 +21,54 @@ struct ValidatorError: Error {
 }
  
 
-class RegisterViewModel: NSObject {
+class RegisterViewModel: BaseViewModel {
     
-    let accountValidated: Driver<Bool>
-    let passwordValidated: Driver<Bool>
+}
+
+extension RegisterViewModel: ViewModelType {
     
-    let registerEnable: Driver<Bool>
- 
-    init(input: (account: Driver<String>, password: Driver<String>)) {
-        
+    struct Input {
+        let account: Driver<String>
+        let password: Driver<String>
+    }
+    
+    struct Output {
+        let registerEnable: Driver<Bool>
+    }
+    
+    func transform(input: RegisterViewModel.Input) -> RegisterViewModel.Output {
+       
         // 账号验证
-        accountValidated = input.account.map{
-            let valid = ValidationRuleLength(min: 8, max: 18, lengthType: .utf8, error: ValidatorError(message: "无效账号"))
-            return $0.validate(rule: valid).isValid
+        let accountValidated = input.account.map { value -> Bool in
+            let valid = ValidationRuleLength(min: 8, max: 18,
+                                             lengthType: .utf8,
+                                             error: ValidatorError(message: "无效账号"))
+            return value.validate(rule: valid).isValid
         }
         
         // 密码验证
-        passwordValidated = input.password.map{
+        let passwordValidated = input.password.map { value -> Bool in
             let valid = ValidationRuleLength(min: 6, max: 18, error: ValidatorError(message: "密码无效"))
-            return $0.validate(rule: valid).isValid
+            return value.validate(rule: valid).isValid
         }
-       registerEnable = Driver.combineLatest(accountValidated, passwordValidated) {
+        let registerEnable = Driver.combineLatest(accountValidated, passwordValidated) {
             $0 && $1
-        }.distinctUntilChanged() // 丢弃重复值
+            }.distinctUntilChanged() // 丢弃重复值
+        
+        return Output(registerEnable: registerEnable)
+        
     }
-    
-    func registerUser(account: String,password: String) -> Observable<Token> {
-        return UserProvider.requestData(.register(account: account, password: password)).mapObject(Token.self)
-    }
+}
 
+
+extension RegisterViewModel {
+    
+    func registerUser(account: String,
+                      password: String) -> Observable<Token> {
+        return UserProvider.requestData(.register(account: account,
+                                                  password: password))
+            .mapObject(Token.self)
+            .trackError(error)
+            .trackActivity(loading)
+    }
 }

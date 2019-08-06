@@ -18,15 +18,7 @@ extension String {
     }
     
     var length: Int {
-        return self.count//.characters.count
-    }
-    
-    func substring(to:Int) -> String {
-        return self.substring(to: self.index(self.startIndex, offsetBy: to, limitedBy: self.endIndex) ?? self.endIndex)
-    }
-    
-    func substring(from:Int) -> String {
-        return self.substring(from: self.index(self.startIndex, offsetBy: from, limitedBy: self.endIndex) ?? self.endIndex)
+        return self.count //.characters.count
     }
     
     subscript (r: Range<Int>) -> String {

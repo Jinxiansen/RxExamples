@@ -16,12 +16,10 @@ class TapController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tapButton.hero.id = "abcd"
+        tapButton.hero.id = "backID"
         
-        tapButton.rx.tap.do(onNext: { _ in
-            SVProgressHUD.show()
-        }).delay(1.5, scheduler: MainScheduler.instance).subscribe(onNext: { _ in
-            SVProgressHUD.showSuccess(withStatus: "请求成功")
+        tapButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.push(controller: UIStoryboard.load(controller: BackController.self))
         }).disposed(by: rx.disposeBag)
         
     }
