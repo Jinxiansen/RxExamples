@@ -42,11 +42,16 @@ extension JobAPI: TargetType {
     }
     
     var task: Task {
+        var parameters = [String:String]()
+
         switch self {
         case .jobs(let page):
-            return .requestParameters(parameters: ["page":page],
-                                      encoding: URLEncoding.default)
+            parameters = ["page":page.string]
         }
+
+        parameters += BaseAPI.baseParameters
+        return .requestParameters(parameters: parameters,
+                                  encoding: URLEncoding.default)
     }
     
     var headers: [String : String]? {

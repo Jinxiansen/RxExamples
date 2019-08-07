@@ -48,6 +48,13 @@ extension BaseAPI {
             return data //fallback to original data if it cant be serialized
         }
     }
-    
+
+    static let baseParameters: [String:String] = {
+        var parameters = [String:String]()
+        parameters["device"] = "iOS"
+        parameters["udid"] = UUID().uuidString
+
+        return parameters
+    }()
 }
 

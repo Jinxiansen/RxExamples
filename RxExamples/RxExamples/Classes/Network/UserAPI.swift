@@ -46,13 +46,18 @@ extension UserAPI: TargetType {
     }
     
     var task: Task {
+        var parameters = [String:String]()
+
         switch self {
         case let .register(account, password):
-            return .requestParameters(parameters: ["account":account,"password":password],
-                                      encoding: URLEncoding.default)
+            parameters = ["account":account,"password":password]
         case .userInfo:
             return .requestPlain
         }
+
+        parameters += BaseAPI.baseParameters
+        return .requestParameters(parameters: parameters,
+                                  encoding: URLEncoding.default)
     }
     
     var headers: [String : String]? {
