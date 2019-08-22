@@ -32,14 +32,16 @@ struct APIResult: Mappable {
     static func parseError() -> APIResult {
         return APIResult(JSON: ["status":"-2","message":ErrorType.dataParseError.rawValue])!
     }
+
+    var isOk: Bool {
+        return status == 0 //
+    }
 }
-
-
 
 extension APIResult {
     
     func mapObjects<T: Mappable>(_ map: T.Type,context: MapContext? = nil) throws -> [T] {
-        guard self.status == 0 else {
+        guard isOk else {
             throw ResultError.parseError(self.message ?? ErrorType.serverError.rawValue)
         }
         guard let objects = Mapper<T>(context: context).mapArray(JSONObject: self.data) else {
@@ -50,7 +52,7 @@ extension APIResult {
     }
     
     func mapObject<T: Mappable>(_ map: T.Type,context: MapContext? = nil) throws -> T {
-        guard self.status == 0 else {
+        guard isOk else {
             throw ResultError.parseError(self.message ?? ErrorType.serverError.rawValue)
         }
         guard let object = Mapper<T>(context: context).map(JSONObject: self.data) else {

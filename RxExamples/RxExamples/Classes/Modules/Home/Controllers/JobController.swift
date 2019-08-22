@@ -31,7 +31,7 @@ class JobController: BaseTableController {
         viewModel.footerLoading.asObservable().bind(to: isFooterLoading).disposed(by: rx.disposeBag)
         viewModel.parseError.map{ $0.message ?? "No Data" }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
 
-        let input = JobViewModel.Input(headerRefresh: headerRefreshTrigger, footerRefresh: footerRefreshTrigger)
+        let input = JobViewModel.Input(headerRefresh: headerRefresh(), footerRefresh: footerRefreshTrigger)
 
         let output = viewModel.transform(input: input)
 
@@ -50,7 +50,5 @@ class JobController: BaseTableController {
             SVProgressHUD.showInfo(withStatus: item.publisher ?? "")
         }).disposed(by: rx.disposeBag)
 
-        // load data
-        tableView.headRefreshControl.beginRefreshing()
     }
 }
