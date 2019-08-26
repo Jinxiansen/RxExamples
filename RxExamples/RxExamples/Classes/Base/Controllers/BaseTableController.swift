@@ -35,6 +35,8 @@ class BaseTableController: BaseController {
 
         view.addSubview(tableView)
         bindRefresh()
+        
+        bindViewModel()
     }
 
     lazy var tableView: BaseTableView = {
@@ -50,7 +52,8 @@ class BaseTableController: BaseController {
 
     func headerRefresh() -> Observable<Void> {
         let refresh = Observable.of(Observable.just(()), headerRefreshTrigger).merge()
-        return refresh
+//        return refresh
+        return headerRefreshTrigger.mapToVoid()
     }
 
     private func bindRefresh() {
@@ -76,6 +79,16 @@ class BaseTableController: BaseController {
         updateEmptyDataSet.subscribe(onNext: { [weak self] () in
             self?.tableView.reloadEmptyDataSet()
         }).disposed(by: rx.disposeBag)
+    }
+    
+    func bindViewModel() {
+        
+        if let viewModel = checkHasViewModel(named: "viewModel") {
+            viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
+            viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
+            viewModel.footerLoading.asObservable().bind(to: isFooterLoading).disposed(by: rx.disposeBag)
+            viewModel.parseError.map{ $0.message ?? "No Data" }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
+        }
     }
 
 }
@@ -130,4 +143,31 @@ extension BaseTableController: DZNEmptyDataSetDelegate {
     }
 
 
+}
+
+
+extension BaseTableController {
+    
+    func pullRefresh(animted: Bool = false) {
+        
+        if animted {
+            tableView.headRefreshControl.beginRefreshing()
+        } else {
+            headerRefreshTrigger.onNext(())
+        }
+    }
+    
+    func checkHasViewModel(named: String = "vmodel") -> BaseViewModel? {
+        let mir = Mirror(reflecting: self)
+        let children = mir.children
+        for (name, object) in children {
+            guard name == named else {
+                continue
+            }
+            if let vmodel = object  as? BaseViewModel {
+                return vmodel
+            }
+        }
+        return nil
+    }
 }

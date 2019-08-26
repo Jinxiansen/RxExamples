@@ -83,7 +83,7 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.0.0)
   - SwifterSwift/UIKit (5.0.0)
   - Then (2.5.0)
-  - Validator (3.1.1)
+  - Validator (3.2.1)
   - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
@@ -128,7 +128,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Validator:
-    :commit: a46c549240bccf7fba4ad5d3cb0a7c37b5eb263c
+    :commit: 9dd9ac17fec55bd4cf8e2a3edf14c420fac15c10
     :git: https://github.com/adamwaite/Validator.git
 
 SPEC CHECKSUMS:
@@ -148,9 +148,9 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
   Then: 0157115e883545c77967b452fe74a1d25fb796e1
-  Validator: b34ab17a8fffd0c1ffd8f9002ead4d1e02cd9e6e
+  Validator: 3f2bbba603ffaed17df71bb4e0fbac67404dbfca
   ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
 PODFILE CHECKSUM: 4b6223f540e5d7fd7ec42611a156ca81eb8ac191
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

@@ -21,15 +21,18 @@ class JobController: BaseTableController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
 
-        bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.pullRefresh(animted: true)
+        }
+        
     }
 
-    func bindViewModel() {
-
-        viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
-        viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
-        viewModel.footerLoading.asObservable().bind(to: isFooterLoading).disposed(by: rx.disposeBag)
-        viewModel.parseError.map{ $0.message ?? "No Data" }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
+    override func bindViewModel() {
+        super.bindViewModel()
 
         let input = JobViewModel.Input(headerRefresh: headerRefresh(), footerRefresh: footerRefreshTrigger)
 
