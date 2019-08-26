@@ -11,7 +11,7 @@ import Validator
 import ObjectMapper
 import Moya_ObjectMapper
 
-struct ValidatorError: Error {
+struct ValidatorError: ValidationError {
     
     public let message: String
     
