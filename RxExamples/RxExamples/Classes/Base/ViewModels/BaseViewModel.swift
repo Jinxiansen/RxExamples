@@ -33,15 +33,17 @@ class BaseViewModel: NSObject {
         super.init()
 
         error.asObservable().map { error -> ResultError? in
-            if let errResponse = error as? ResultError {
-                return errResponse
-            }
-            return nil
+            guard let errResponse = error as? ResultError else { return nil }
+            return errResponse
             }.filterNil().bind(to: parseError).disposed(by: rx.disposeBag)
 
-        error.asDriver().drive(onNext: { error in
+        error.asDriver().drive(onNext: { [weak self] error in
+            guard let self = self else { return }
             logError(" \(type(of: self).nameOfClass) Response Failed：\(error)")
         }).disposed(by: rx.disposeBag)
     }
 
+    deinit {
+        logDebug("已释放：\(String(describing: Mirror(reflecting: self).subjectType))\n")
+    }
 }

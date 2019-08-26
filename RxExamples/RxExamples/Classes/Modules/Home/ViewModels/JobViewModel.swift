@@ -29,14 +29,16 @@ extension JobViewModel: ViewModelType {
     func transform(input: JobViewModel.Input) -> JobViewModel.Output {
         let output = Output()
 
-        input.headerRefresh.flatMapLatest { _ -> Observable<[JobItem]> in
+        input.headerRefresh.flatMapLatest { [weak self] _ -> Observable<[JobItem]> in
+            guard let self = self else { return Observable.just([]) }
             self.page = 1
             return self.requestJobs()
                 .trackActivity(self.headerLoading)
                 .catchErrorJustComplete()
             }.bind(to: output.items).disposed(by: rx.disposeBag)
 
-        input.footerRefresh.flatMapLatest { _ -> Observable<[JobItem]> in
+        input.footerRefresh.flatMapLatest { [weak self] _ -> Observable<[JobItem]> in
+            guard let self = self else { return Observable.just([]) }
             self.page += 1
             return self.requestJobs().trackActivity(self.footerLoading)
             }.subscribe(onNext: { items in

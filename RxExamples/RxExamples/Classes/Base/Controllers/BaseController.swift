@@ -33,7 +33,7 @@ class BaseController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        logDebug("已释放：\(String(describing: Mirror(reflecting: self).subjectType))\n")
+        logDebug("已释放：\(String(describing: Mirror(reflecting: self).subjectType))")
     }
 
 }
