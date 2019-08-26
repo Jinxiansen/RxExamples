@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,7 +32,7 @@
 		3C0B8FEB22EF098300F16E13 /* JobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0B8FC122EF098300F16E13 /* JobCell.xib */; };
 		3C0B8FEC22EF098300F16E13 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FC222EF098300F16E13 /* JobCell.swift */; };
 		3C0B8FED22EF098300F16E13 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FC522EF098300F16E13 /* BaseViewModel.swift */; };
-		3C0B8FEE22EF098300F16E13 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FC722EF098300F16E13 /* SectionType.swift */; };
+		3C0B8FEE22EF098300F16E13 /* TableSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FC722EF098300F16E13 /* TableSectionItem.swift */; };
 		3C0B8FEF22EF098300F16E13 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FC822EF098300F16E13 /* APIResult.swift */; };
 		3C0B8FF022EF098300F16E13 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FCA22EF098300F16E13 /* BaseController.swift */; };
 		3C0B8FF122EF098300F16E13 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0B8FCB22EF098300F16E13 /* BaseNavigationController.swift */; };
@@ -82,7 +82,7 @@
 		3C0B8FC122EF098300F16E13 /* JobCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobCell.xib; sourceTree = "<group>"; };
 		3C0B8FC222EF098300F16E13 /* JobCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
 		3C0B8FC522EF098300F16E13 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		3C0B8FC722EF098300F16E13 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
+		3C0B8FC722EF098300F16E13 /* TableSectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionItem.swift; sourceTree = "<group>"; };
 		3C0B8FC822EF098300F16E13 /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		3C0B8FCA22EF098300F16E13 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		3C0B8FCB22EF098300F16E13 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		3C0B8FC622EF098300F16E13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3C0B8FC722EF098300F16E13 /* SectionType.swift */,
+				3C0B8FC722EF098300F16E13 /* TableSectionItem.swift */,
 				3C0B8FC822EF098300F16E13 /* APIResult.swift */,
 			);
 			path = Models;
@@ -425,50 +425,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
-				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
-				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-RxExamples/Pods-RxExamples-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -521,7 +482,7 @@
 				3C0B8FE322EF098300F16E13 /* AppDelegate.swift in Sources */,
 				3C0B8FE622EF098300F16E13 /* JobItem.swift in Sources */,
 				3C0B8FF822EF0D9800F16E13 /* Observable+Ext.swift in Sources */,
-				3C0B8FEE22EF098300F16E13 /* SectionType.swift in Sources */,
+				3C0B8FEE22EF098300F16E13 /* TableSectionItem.swift in Sources */,
 				3C0B8FD622EF098300F16E13 /* UserAPI.swift in Sources */,
 				3C9706F922F92E7700551C31 /* UITextField+Ext.swift in Sources */,
 				3C0B8FE422EF098300F16E13 /* JobViewModel.swift in Sources */,

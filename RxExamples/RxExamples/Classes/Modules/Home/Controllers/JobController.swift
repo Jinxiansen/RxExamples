@@ -21,18 +21,17 @@ class JobController: BaseTableController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
 
-        bindViewModel()
     }
 
-    func bindViewModel() {
+    override func bindViewModel() {
+        super.bindViewModel()
 
         viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
         viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
         viewModel.footerLoading.asObservable().bind(to: isFooterLoading).disposed(by: rx.disposeBag)
         viewModel.parseError.map{ $0.message ?? "No Data" }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
 
-        let input = JobViewModel.Input(headerRefresh: headerRefresh(), footerRefresh: footerRefreshTrigger)
-
+        let input = JobViewModel.Input(headerRefresh: headerRefreshTrigger, footerRefresh: footerRefreshTrigger)
         let output = viewModel.transform(input: input)
 
         emptyDataSetButtonTap.subscribe(onNext: { [weak self] _ in
@@ -50,5 +49,6 @@ class JobController: BaseTableController {
             SVProgressHUD.showInfo(withStatus: item.publisher ?? "")
         }).disposed(by: rx.disposeBag)
 
+        tableView.headRefreshControl.beginRefreshing() //
     }
 }

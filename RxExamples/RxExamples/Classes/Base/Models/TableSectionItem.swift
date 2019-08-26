@@ -9,15 +9,15 @@
 import Foundation
 
 //
-struct SectionType<T> {
+struct TableSectionItem<T> {
     var header: String
     var items: [T]
 }
 
-extension SectionType: SectionModelType {
+extension TableSectionItem: SectionModelType {
     typealias Item = T
     
-    init(original: SectionType, items: [T]) {
+    init(original: TableSectionItem, items: [T]) {
         self = original
         self.items = items
     }

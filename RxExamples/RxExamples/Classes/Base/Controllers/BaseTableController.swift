@@ -35,6 +35,8 @@ class BaseTableController: BaseController {
 
         view.addSubview(tableView)
         bindRefresh()
+        
+        bindViewModel()
     }
 
     lazy var tableView: BaseTableView = {
@@ -58,7 +60,7 @@ class BaseTableController: BaseController {
         // https://github.com/OpenFeyn/KafkaRefresh/blob/master/CREADME.md
         tableView.bindHeadRefreshHandler({ [weak self] in
             self?.headerRefreshTrigger.onNext(())
-        }, themeColor: UIColor.master, refreshStyle: .replicatorCircle)
+        }, themeColor: UIColor.purple, refreshStyle: .replicatorCircle)
 
         tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
             self?.footerRefreshTrigger.onNext(())
@@ -76,6 +78,10 @@ class BaseTableController: BaseController {
         updateEmptyDataSet.subscribe(onNext: { [weak self] () in
             self?.tableView.reloadEmptyDataSet()
         }).disposed(by: rx.disposeBag)
+    }
+    
+    func bindViewModel() {
+        
     }
 
 }

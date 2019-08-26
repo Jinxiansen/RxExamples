@@ -25,7 +25,7 @@ class HomeController: BaseController {
         tableView.registerCell(class: UITableViewCell.self)
         tableView.tableFooterView = UIView()
         
-        let sec1 = SectionType<TapItem>(header: "RxSwift", items: [
+        let sec1 = TableSectionItem<TapItem>(header: "RxSwift", items: [
             TapItem(title: "点击事件", type: RxType.tap),
             TapItem(title: "登录注册", type: RxType.register),
             TapItem(title: "数据列表", type: RxType.word)
@@ -45,7 +45,7 @@ class HomeController: BaseController {
             }).disposed(by: rx.disposeBag)
     }
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionType<TapItem>>(
+    let dataSource = RxTableViewSectionedReloadDataSource<TableSectionItem<TapItem>>(
         configureCell: { dataSource, tableView, indexPath, item in
             let cell = tableView.dequeueReusable(class: UITableViewCell.self)
             cell.textLabel?.text = "\(indexPath.row + 1). \(item.title)"

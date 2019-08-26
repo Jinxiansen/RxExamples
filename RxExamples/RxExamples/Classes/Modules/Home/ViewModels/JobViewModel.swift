@@ -53,7 +53,9 @@ extension JobViewModel: ViewModelType {
 extension JobViewModel {
 
     func requestJobs() -> Observable<[JobItem]> {
+        print("刷新···")
         return jobProvider.requestData(.jobs(page: page))
+            .delay(2, scheduler: MainScheduler.instance)
             .mapObjects(JobItem.self)
             .trackError(error)
             .trackActivity(loading)
