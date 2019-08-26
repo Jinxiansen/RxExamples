@@ -14,16 +14,16 @@ class BaseController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logDebug("进入：\(self.nameOfClass)")
+        logDebug("进入：\(self.className)")
 
         automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = UIColor.white
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true;
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self;
 
-//        if let count = navigationController?.viewControllers.count, count > 1 {
-//            addBackItem()
-//        }
+        if let count = navigationController?.viewControllers.count, count > 1 {
+            addBackItem()
+        }
 
     }
 
@@ -33,7 +33,7 @@ class BaseController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        logDebug("已释放：\(String(describing: Mirror(reflecting: self).subjectType))")
+        logDebug("已释放：\(className)")
     }
 
 }

@@ -39,11 +39,11 @@ class BaseViewModel: NSObject {
 
         error.asDriver().drive(onNext: { [weak self] error in
             guard let self = self else { return }
-            logError(" \(type(of: self).nameOfClass) Response Failed：\(error)")
+            logError(" \(type(of: self).className) Response Failed：\(error)")
         }).disposed(by: rx.disposeBag)
     }
 
     deinit {
-        logDebug("已释放：\(String(describing: Mirror(reflecting: self).subjectType))\n")
+        logDebug("已释放：\(className)\n")
     }
 }

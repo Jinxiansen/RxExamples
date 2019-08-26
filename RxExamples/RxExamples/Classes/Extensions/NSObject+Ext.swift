@@ -11,11 +11,11 @@ import ObjectMapper
 
 extension NSObject {
     
-    class var nameOfClass: String {
+    class var className: String {
         return String(describing: self)
     }
 
-    var nameOfClass: String {
+    var className: String {
         return String(describing: type(of: self))
     }
 }

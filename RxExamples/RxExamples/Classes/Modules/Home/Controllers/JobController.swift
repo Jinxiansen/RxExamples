@@ -39,7 +39,7 @@ class JobController: BaseTableController {
             self?.headerRefreshTrigger.onNext(())
         }).disposed(by: rx.disposeBag)
 
-        output.items.bind(to: tableView.rx.items(cellIdentifier: JobCell.nameOfClass,
+        output.items.bind(to: tableView.rx.items(cellIdentifier: JobCell.className,
                                                  cellType: JobCell.self)) { (_, element, cell) in
                                                     cell.item = element
             }.disposed(by: rx.disposeBag)

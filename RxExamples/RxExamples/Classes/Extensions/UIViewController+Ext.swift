@@ -10,6 +10,11 @@ import Foundation
 
 extension UIViewController {
 
+    @objc func addBackItem() {
+        let image = UIImage(named: "back-white")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.pop))
+    }
+
     @objc func pop() {
         self.navigationController?.popViewController(animated: true)
     }
