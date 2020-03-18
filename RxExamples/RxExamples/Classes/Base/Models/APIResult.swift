@@ -34,7 +34,7 @@ struct APIResult: Mappable {
     }
 
     var isOk: Bool {
-        return status == 0 //
+        return status == 0 // maybe is 200
     }
 }
 

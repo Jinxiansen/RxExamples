@@ -2,7 +2,7 @@
 
 
 ## 内容
-- [x] 简单注册登录绑定；
+- [x] 简单的注册登录绑定；
 - [x] 网络数据请求、分页、刷新绑定。
 
 ## Screenshot
@@ -136,11 +136,7 @@ extension JobViewModel {
 
 ## About
 
-* 如果有更好的建议或写法，期待能够分享。
-
-## Contacts
-
-晋先森： hi@jinxiansen.com
+* 若有不足之处，还望指出，邮箱：hi@jinxiansen.com
 
 
 ## License	

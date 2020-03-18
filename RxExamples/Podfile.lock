@@ -103,7 +103,7 @@ DEPENDENCIES:
   - ViewAnimator (~> 2.5.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Differentiator
     - DZNEmptyDataSet
@@ -153,4 +153,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4b6223f540e5d7fd7ec42611a156ca81eb8ac191
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
