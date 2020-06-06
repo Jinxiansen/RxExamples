@@ -2,6 +2,8 @@
 
 
 ## 内容
+
+- [x] 简单转场动画；
 - [x] 简单的注册登录绑定；
 - [x] 网络数据请求、分页、刷新绑定。
 
@@ -67,11 +69,11 @@ class JobController: BaseTableController {
 ```swift
 
 class JobViewModel: BaseViewModel {
-
+    
 }
 
 extension JobViewModel: ViewModelType {
-
+    
     struct Input {
         let headerRefresh: Observable<Void>
         let footerRefresh: Observable<Void>
@@ -83,20 +85,22 @@ extension JobViewModel: ViewModelType {
     
     func transform(input: JobViewModel.Input) -> JobViewModel.Output {
         let output = Output()
-
-        input.headerRefresh.flatMapLatest { _ -> Observable<[JobItem]> in
+        
+        input.headerRefresh.flatMapLatest { [weak self] _ -> Observable<[JobItem]> in
+            guard let self = self else { return Observable.just([]) }
             self.page = 1
             return self.requestJobs()
                 .trackActivity(self.headerLoading)
                 .catchErrorJustComplete()
-            }.bind(to: output.items).disposed(by: rx.disposeBag)
-
-        input.footerRefresh.flatMapLatest { _ -> Observable<[JobItem]> in
+        }.bind(to: output.items).disposed(by: rx.disposeBag)
+        
+        input.footerRefresh.flatMapLatest { [weak self] _ -> Observable<[JobItem]> in
+            guard let self = self else { return Observable.just([]) }
             self.page += 1
             return self.requestJobs().trackActivity(self.footerLoading)
-            }.subscribe(onNext: { items in
-                output.items.accept(output.items.value + items)
-            }).disposed(by: rx.disposeBag)
+        }.subscribe(onNext: { items in
+            output.items.accept(output.items.value + items)
+        }).disposed(by: rx.disposeBag)
         
         return output
     }
@@ -104,15 +108,17 @@ extension JobViewModel: ViewModelType {
 
 
 extension JobViewModel {
-
+    
     func requestJobs() -> Observable<[JobItem]> {
         return jobProvider.requestData(.jobs(page: page))
+            .delay(1, scheduler: MainScheduler.instance) // 延迟1秒
             .mapObjects(JobItem.self)
             .trackError(error)
             .trackActivity(loading)
     }
-
+    
 }
+
 ```
 
 大致用到了以下框架：
@@ -127,7 +133,7 @@ extension JobViewModel {
   pod 'Validator', git: 'https://github.com/adamwaite/Validator.git' # 表单验证
   pod 'Hero'  # https://github.com/HeroTransitions/Hero
   pod 'DZNEmptyDataSet', '~> 1.8.1'  # 空态 https://github.com/dzenbot/DZNEmptyDataSet
-  pod 'KafkaRefresh', '~> 1.4.7' # 刷新框架 https://github.com/OpenFeyn/KafkaRefresh
+  pod 'KafkaRefresh', '~> 1.4.7' # 刷新 https://github.com/OpenFeyn/KafkaRefresh
   pod 'ViewAnimator', '~> 2.5.1' # 动画库 https://github.com/marcosgriselli/ViewAnimator
   pod 'SwifterSwift', '~> 5.0.0' # 类似 YYKit https://github.com/SwifterSwift/SwifterSwift
 
@@ -136,7 +142,7 @@ extension JobViewModel {
 
 ## About
 
-* 若有不足之处，还望指出，邮箱：hi@jinxiansen.com
+晋先森：hi@jinxiansen.com
 
 
 ## License	

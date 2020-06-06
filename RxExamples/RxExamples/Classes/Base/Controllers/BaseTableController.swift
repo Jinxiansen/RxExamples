@@ -60,7 +60,7 @@ class BaseTableController: BaseController {
         // https://github.com/OpenFeyn/KafkaRefresh/blob/master/CREADME.md
         tableView.bindHeadRefreshHandler({ [weak self] in
             self?.headerRefreshTrigger.onNext(())
-        }, themeColor: UIColor.purple, refreshStyle: .replicatorCircle)
+        }, themeColor: UIColor.master, refreshStyle: .replicatorCircle)
 
         tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
             self?.footerRefreshTrigger.onNext(())

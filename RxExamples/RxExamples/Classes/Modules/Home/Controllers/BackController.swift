@@ -15,7 +15,7 @@ class BackController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Back"
+        title = "Back Controller"
         
         backButton.hero.id = "backID"
         

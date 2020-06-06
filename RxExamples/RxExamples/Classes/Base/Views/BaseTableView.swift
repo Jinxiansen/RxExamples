@@ -44,7 +44,7 @@ class BaseTableView: UITableView {
     lazy var onceCode: Void = {
         UIView.animate(views: self.visibleCells, animations: animations, completion: {
         })
-        logInfo("Run once !")
+        logInfo("once Run!")
     }()
 
 }
