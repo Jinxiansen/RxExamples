@@ -60,7 +60,7 @@ class BaseTableController: BaseController {
         // https://github.com/OpenFeyn/KafkaRefresh/blob/master/CREADME.md
         tableView.bindHeadRefreshHandler({ [weak self] in
             self?.headerRefreshTrigger.onNext(())
-        }, themeColor: UIColor.master, refreshStyle: .replicatorCircle)
+        }, themeColor: UIColor.main, refreshStyle: .replicatorCircle)
 
         tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
             self?.footerRefreshTrigger.onNext(())
@@ -132,7 +132,7 @@ extension BaseTableController: DZNEmptyDataSetDelegate {
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
         let title = emptyDataButonHidden.value == true ? "":emptyDataSetButtonTitle
         return NSAttributedString(string: title,
-                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.master])
+                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.main])
     }
 
 

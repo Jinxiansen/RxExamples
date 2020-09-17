@@ -15,10 +15,10 @@ extension UINavigationBar {
 
         appearance().shadowImage = UIImage()
         appearance().tintColor = UIColor.white
-        appearance().barTintColor = .master
+        appearance().barTintColor = .main
         appearance().isTranslucent = false
         appearance().clipsToBounds = false
-        appearance().backgroundColor = .master
+        appearance().backgroundColor = .main
         appearance().setBackgroundImage(UIImage(),
                                                         for: UIBarPosition.any,
                                                         barMetrics: UIBarMetrics.default)

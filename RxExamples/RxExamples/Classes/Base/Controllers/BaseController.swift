@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DZNEmptyDataSet
 
 class BaseController: UIViewController {
 
@@ -16,7 +15,6 @@ class BaseController: UIViewController {
 
         logDebug("进入：\(self.className)")
 
-        automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = UIColor.white
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true;
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self;

@@ -1,23 +1,34 @@
 platform :ios, '9.0'
 inhibit_all_warnings!
 
+def sharedPods
+  
+  pod 'Hero'  # https://github.com/HeroTransitions/Hero
+  pod 'Then', '~> 2.5.0' # 语法糖 https://github.com/devxoul/Then
+  pod 'SwifterSwift', '~> 5.0.0' # 类似 YYKit https://github.com/SwifterSwift/SwifterSwift
+  
+end
+
 target 'RxExamples' do
   use_frameworks!
-
+  sharedPods
+  
   pod 'Moya/RxSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'NSObject+Rx' # 
+  pod 'NSObject+Rx' #
   pod 'RxDataSources'  # https://github.com/RxSwiftCommunity/RxDataSources
   pod 'Moya-ObjectMapper' # https://github.com/bmoliveira/Moya-ObjectMapper
   pod 'Validator', git: 'https://github.com/adamwaite/Validator.git' # 表单验证
   pod 'SVProgressHUD'
-  pod 'Hero'  # https://github.com/HeroTransitions/Hero
   pod 'DZNEmptyDataSet', '~> 1.8.1'  # 空态 https://github.com/dzenbot/DZNEmptyDataSet
   pod 'KafkaRefresh', '~> 1.4.7' # 刷新框架 https://github.com/OpenFeyn/KafkaRefresh
-  pod 'Then', '~> 2.5.0' # 语法糖 https://github.com/devxoul/Then
   pod 'ViewAnimator', '~> 2.5.1' # 动画库 https://github.com/marcosgriselli/ViewAnimator
-  pod 'SwifterSwift', '~> 5.0.0' # 类似 YYKit https://github.com/SwifterSwift/SwifterSwift
-
-
+  
 end
+
+target 'AppClip' do
+  sharedPods
+  
+end
+

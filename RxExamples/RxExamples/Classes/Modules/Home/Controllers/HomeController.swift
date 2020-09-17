@@ -10,7 +10,7 @@ import UIKit
 import Hero
 
 class HomeController: BaseController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -18,29 +18,35 @@ class HomeController: BaseController {
         
         configureTableView()
     }
-
     
     func configureTableView() {
         
         tableView.registerCell(class: UITableViewCell.self)
         tableView.tableFooterView = UIView()
         
-        let sec1 = TableSectionItem<TapItem>(header: "RxSwift", items: [
-            TapItem(title: "点击事件", type: RxType.tap),
-            TapItem(title: "登录注册", type: RxType.register),
-            TapItem(title: "数据列表", type: RxType.word)
-            ])
+        let sectionOne = TableSectionItem<TapItem>(header: "RxSwift", items: [
+            TapItem(title: "点击事件", closure: { [weak self] in
+                self?.pushController(TapController.self)
+            }),
+            TapItem(title: "登录注册", closure: { [weak self] in
+                self?.pushController(RegisterController.self)
+            }),
+            TapItem(title: "数据列表", closure: { [weak self] in
+                self?.push(controller: JobController())
+            }),
+            TapItem(title: "App Clip", closure: { [weak self] in
+                self?.push(controller: ClipController())
+            })
+        ])
         
-        Observable.just([sec1]).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
-
+        Observable.just([sectionOne]).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+        
         Observable
             .zip(tableView.rx.modelSelected(TapItem.self),tableView.rx.itemSelected)
             .subscribe(onNext: { [weak self] (item,indexPath) in
-                
                 self?.tableView.deselectRow(at: indexPath, animated: false)
                 print("subscribe Item:\(item) index:\(indexPath)\n")
-                
-                self?.didSelectEvent(item)
+                item.closure?()
                 
             }).disposed(by: rx.disposeBag)
     }
@@ -51,26 +57,12 @@ class HomeController: BaseController {
             cell.textLabel?.text = "\(indexPath.row + 1). \(item.title)"
             return cell
             
-    }, titleForHeaderInSection: { (dataSource, section) -> String? in
-        return dataSource[section].header
-    })
+        }, titleForHeaderInSection: { (dataSource, section) -> String? in
+            return dataSource[section].header
+        })
     
-    func didSelectEvent(_ item: TapItem) {
-        
-        var t = UIViewController.self
-        switch item.type {
-        case .tap:
-            t = TapController.self
-            break
-        case .register:
-            t = RegisterController.self
-            break
-        case .word:
-            push(controller: JobController())
-            return // 
-        }
-        
-        push(controller: UIStoryboard.load(controller: t))
+    func pushController<T: UIViewController>(_ controller: T.Type) {
+        push(controller: UIStoryboard.load(controller: T.self))
     }
 }
 

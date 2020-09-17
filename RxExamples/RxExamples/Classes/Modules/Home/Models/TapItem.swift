@@ -8,13 +8,7 @@
 
 import Foundation
 
-enum RxType {
-    case tap
-    case register
-    case word
-}
-
 struct TapItem {
     var title:String
-    var type: RxType
+    var closure: (() -> ())?
 }
